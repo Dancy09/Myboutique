@@ -1,0 +1,93 @@
+{% load static %}
+<!-- Footer Section Begin -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <a href="#"><img src="{% static 'img/darklo.png' %}" alt=""></a>
+
+                    </div>
+                    <ul>
+                        <li>Address: Main Road Marthandam</li>
+                        <li>Phone: +91 9881726272</li>
+                        <li>Email: ancyd@gmail.com</li>
+                    </ul>
+                    <div class="footer-social">
+    <a href="https://www.instagram.com/instagram/?hl=en"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-lg"></i></a>
+    <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="https://in.pinterest.com/"><i class="fab fa-pinterest fa-lg"></i></a>
+</div>
+
+                </div>
+            </div>
+            <div class="col-lg-2 offset-lg-1">
+                <div class="footer-widget">
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="{% url 'contact' %}">About Us</a></li>
+                        <li><a href="{% url 'shop' %}">Shop</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'shop' %}">Collections</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="footer-widget">
+                    <h5>My Account</h5>
+                    <ul>
+                        <li><a href="{% url 'kid' %}">kids</a></li>
+                        <li><a href="{% url 'saree' %}">Sarees</a></li>
+                        <li><a href="{% url 'kur' %}">kurtis</a></li>
+                        <li><a href="{% url 'western' %}">Western Wear</a></li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="newslatter-item">
+                    <h5>Ana's</h5>
+                    <p>Make Your vision comes to life with us.</p>
+
+                    <p><b>Mail Us</b><br>Ana's
+                    <br>
+                    Marthandam,<br>
+                        PIN-629168<br>
+                    Kanniyakumari Dist,<br>
+                    Tamil Nadu,<br>
+                    </p>
+<!--                    <form action="#" class="subscribe-form">-->
+<!--                        <input type="text" placeholder="Enter Your Mail">-->
+<!--                        <button type="button">Subscribe</button>-->
+<!--                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-reserved">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Ana's</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="payment-pic">
+                        <img src="{% static 'img/payment-method.png' %}" alt="">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->

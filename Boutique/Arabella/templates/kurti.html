@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fashi | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+      .pi-pic {
+    position: relative;
+    display: inline-block;
+}
+
+.description {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+
+.pi-pic:hover .description {
+    display: block;
+}
+
+    .purchase-btn {
+    background-color: #e7ab3c;; /* Default background color */
+    color: #fff; /* Default text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition effect on background color */
+}
+
+.purchase-btn:hover {
+    background-color: hsl(35, 72%, 45%); /* Background color on hover */
+}
+
+.purchase-btn:active {
+    transform: translateY(1px); /* Add slight vertical shift on button press */
+}
+</style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+{% include 'navbar.html' %}
+
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Women Kurtis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- Product Shop Section Begin -->
+    <section class="product-shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Remove the filtering sidebar -->
+                <!-- Product Grid -->
+                <div class="row">
+                    {% for k in kurti  %}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="product-item">
+                            <!-- Product Image -->
+                            <div class="pi-pic">
+    <img src="{{ k.image.url }}" alt="">
+    <div class="description">{{k.description }}</div>
+</div>
+
+                            <!-- Product Details -->
+                            <div class="pi-text">
+                                <!-- Product Name -->
+                                <a href="#">
+                                    <h5>{{k.name }}</h5>
+                                </a>
+                                <!-- Product Price -->
+                                <div class="product-price">
+                                    ₹{{ k.price }}
+                                </div>
+                                <!-- Purchase Button -->
+                                <form action="{% url 'kurtis' k.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="purchase-btn">Purchase</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Close the for loop -->
+                    {% endfor %}
+                </div>
+                <!-- End Product Grid -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Product Shop Section End -->
+
+
+
+    <!-- Footer Section Begin -->
+   {% include 'footer.html' %}
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
+<script src="{% static 'js/jquery.dd.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

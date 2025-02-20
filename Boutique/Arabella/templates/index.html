@@ -1,0 +1,398 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Fashi | Template</title>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+
+    <!--     Css Styles -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap">
+
+
+  <style>
+    .purchase-btn {
+    background-color: #e7ab3c;; /* Default background color */
+    color: #fff; /* Default text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition effect on background color */
+}
+
+.purchase-btn:hover {
+    background-color: hsl(35, 72%, 45%); /* Background color on hover */
+}
+
+.purchase-btn:active {
+    transform: translateY(1px); /* Add slight vertical shift on button press */
+}
+
+ .image-slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-container {
+    display: flex;
+    animation: slide 20s linear infinite; /* Adjust animation duration as needed */
+}
+
+.image-container img {
+    flex: 0 0 auto;
+    width: 25%; /* Each image takes 25% of the container width */
+    height: auto;
+    box-sizing: border-box; /* Include padding and border in the width */
+    padding: 5px; /* Adjust as needed */
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+
+
+        #image {
+             /* Adjust size as needed */
+            border-radius: 10px; /* Rounded corners for elegance */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+
+        #image:hover {
+            transform: scale(1.1); /* Scale up slightly on hover */
+        }
+    </style>
+</head>
+
+<body>
+<div style="background-color:white;">
+{% include 'navbar.html' %}
+    </div>
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="hero-items owl-carousel">
+        <div class="single-hero-items set-bg" data-setbg="{% static 'img/hero-1.jpg' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <span>Ana's Legacy</span>
+                        <h1>What We Do</h1>
+                        <p>
+                            Experience personalized style at Ana's, where we customize women's dresses, from dreamy
+                            gowns to chic everyday wear. Let our expert team bring your fashion vision to life and
+                            elevate your wardrobe with bespoke creations reflecting your unique flair.</p>
+                        <a href="{% url 'shop' %}" class="primary-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="off-card">
+                    <h2>Buy <span>Now</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="single-hero-items set-bg" data-setbg="{% static 'img/hero-1.jpg' %}">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <span> Ana's Legacy</span>
+                        <h1>What We Do</h1>
+                        <p>
+
+                            Experience personalized style at Ana's, where we customize women's dresses, from dreamy
+                            gowns to chic everyday wear. Let our expert team bring your fashion vision to life and
+                            elevate your wardrobe with bespoke creations reflecting your unique flair.</p>
+                        <a href="{% url 'shop' %}" class="primary-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="off-card">
+                    <h2>Buy <span>Now</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+
+<!-- Banner Section End -->
+
+<!-- Women Banner Section Begin -->
+<section class="img">
+    <img id="image" src="{% static 'Anab.png' %}" alt="">
+</section>
+<!-- Women Banner Section End -->
+<br><br>
+<!-- Deal Of The Week Section Begin-->
+<h1 style="margin-left:400px;display: inline-block; border: 9px double #e7ab3c; padding: 10px; text-align: center; font-family: 'Cinzel', sans-serif;">Our Store</h1>
+   <br><br> <div class="image-slider">
+        <div class="image-container">
+            {% for instance in stor %}
+                <img src="{{ instance.image.url }}" alt="Store Image">
+            {% endfor %}
+        </div>
+    </div>
+
+<!-- Deal Of The Week Section End -->
+
+<!-- Man Banner Section Begin -->
+<section class="man-banner spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="filter-control">
+                    <h3>Latest</h3>
+                </div>
+                <div class="product-slider owl-carousel">
+                    {% for product in late %}
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="{{ product.image.url }}" alt="">
+                            {% if product.sale %}
+                            <div class="sale">Sale</div>
+                            {% endif %}
+
+                        </div>
+                        <div class="pi-text">
+                            <div class="catagory-name">{{ product.category }}</div>
+                            <a href="#">
+                                <h5>{{ product.name }}</h5>
+                            </a>
+                            <div class="product-price">
+                                ₹{{ product.price }}
+                                {% if product.discount_price %}
+                                <span>₹{{ product.discount_price }}</span>
+                                {% endif %}
+                                <form action="{% url 'latestt' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="purchase-btn">Purchase</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="product-large set-bg m-large" data-setbg="{% static 'img/products/women-large.jpg' %}">
+                    <h2>women’s</h2>
+                    <a href="{% url 'shop'  %}">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Man Banner Section End -->
+
+<!--&lt;!&ndash; Instagram Section Begin &ndash;&gt;-->
+<!--<div class="instagram-photo">-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-1.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-2.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-3.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-4.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-5.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="insta-item set-bg" data-setbg="{% static 'img/insta-6.jpg' %}">-->
+<!--        <div class="inside-text">-->
+<!--            <i class="ti-instagram"></i>-->
+<!--            <h5><a href="#">colorlib_Collection</a></h5>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash; Latest Blog Section Begin &ndash;&gt;-->
+<!--<section class="latest-blog spad">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="section-title">-->
+<!--                    <h2>From The Blog</h2>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-4 col-md-6">-->
+<!--                <div class="single-latest-blog">-->
+<!--                    <img src="{% static 'img/latest-1.jpg' %}" alt="">-->
+<!--                    <div class="latest-text">-->
+<!--                        <div class="tag-list">-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-calendar-o"></i>-->
+<!--                                May 4,2019-->
+<!--                            </div>-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-comment-o"></i>-->
+<!--                                5-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="#">-->
+<!--                            <h4>The Best Street Style From London Fashion Week</h4>-->
+<!--                        </a>-->
+<!--                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6">-->
+<!--                <div class="single-latest-blog">-->
+<!--                    <img src="{% static 'img/latest-2.jpg' %}" alt="">-->
+<!--                    <div class="latest-text">-->
+<!--                        <div class="tag-list">-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-calendar-o"></i>-->
+<!--                                May 4,2019-->
+<!--                            </div>-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-comment-o"></i>-->
+<!--                                5-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="#">-->
+<!--                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>-->
+<!--                        </a>-->
+<!--                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6">-->
+<!--                <div class="single-latest-blog">-->
+<!--                    <img src="{% static 'img/latest-3.jpg' %}" alt="">-->
+<!--                    <div class="latest-text">-->
+<!--                        <div class="tag-list">-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-calendar-o"></i>-->
+<!--                                May 4,2019-->
+<!--                            </div>-->
+<!--                            <div class="tag-item">-->
+<!--                                <i class="fa fa-comment-o"></i>-->
+<!--                                5-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="#">-->
+<!--                            <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>-->
+<!--                        </a>-->
+<!--                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="benefit-items">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="single-benefit">-->
+<!--                        <div class="sb-icon">-->
+<!--                            <img src="{% static 'img/icon-1.png' %}" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="sb-text">-->
+<!--                            <h6>Free Shipping</h6>-->
+<!--                            <p>For all order over 99$</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="single-benefit">-->
+<!--                        <div class="sb-icon">-->
+<!--                            <img src="{% static 'img/icon-2.png' %}" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="sb-text">-->
+<!--                            <h6>Delivery On Time</h6>-->
+<!--                            <p>If good have prolems</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="single-benefit">-->
+<!--                        <div class="sb-icon">-->
+<!--                            <img src="{% static 'img/icon-1.png' %}" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="sb-text">-->
+<!--                            <h6>Secure Payment</h6>-->
+<!--                            <p>100% secure payment</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!-- Latest Blog Section End -->
+
+
+{% include 'footer.html' %}
+<script>
+
+
+</script>
+<!-- Js Plugins -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src=" {% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
+<script src="{% static 'js/jquery.dd.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

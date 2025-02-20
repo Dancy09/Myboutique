@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <title>Fashi | Template</title>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+
+    <!--     Css Styles -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
+         <style>
+             .pi-pic {
+    position: relative;
+    display: inline-block;
+}
+
+.description {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+
+.pi-pic:hover .description {
+    display: block;
+}
+
+    .purchase-btn {
+    background-color: #e7ab3c;; /* Default background color */
+    color: #fff; /* Default text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition effect on background color */
+}
+
+.purchase-btn:hover {
+    background-color: hsl(35, 72%, 45%); /* Background color on hover */
+}
+
+.purchase-btn:active {
+    transform: translateY(1px); /* Add slight vertical shift on button press */
+}
+
+        ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+    </style>
+</head>
+
+<body>
+<br>
+{% include 'navbar.html' %}
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <span>Customize Your Dress</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <!-- First Column -->
+        <div class="col-md-6">
+            <h1 style=" font-family: serif;">Customized Dresses</h1>
+            <br>
+            <p>Looking for a one-of-a-kind dress that perfectly fits your style and body?
+                Our customized dress stitching services are just what you need! Our skilled
+                tailors work with you to design a dress that matches your vision, using a standard
+                process and the latest techniques. From casual to formal, our customized dresses will
+                make you stand out. Order online and get your dream dress custom-made for you!</p>
+            <br>
+            <p><b> Note: </b></p>
+
+            <ul>
+
+
+                <br>
+                <li>1. You can also choose from our diverse fabric collections to find the perfect blend of style and
+                    comfort.
+                </li>
+                <br>
+                <li>2.
+                    Once you've selected your fabric, simply reach out to us with your desired design and
+                    measurements, and we'll bring your vision to life with expert craftsmanship and attention to detail.
+                </li>
+                <br>
+                <li>3. Upon selecting your fabric and design, we'll provide a personalized quote based on your
+                    specifications, ensuring transparency and fairness in pricing.
+                </li>
+
+            </ul>
+        </div>
+
+        <br>
+        <!-- Second Column -->
+
+        <div class="col-md-6">
+            <img src="{% static 'img/custo.jpg' %}" alt="" style="border-radius: 10px;">
+
+        </div>
+    </div>
+</div>
+
+
+<br><br><br>
+<h2 style="text-align:center;">Select Fabric </h2>
+<section class="product-shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Remove the filtering sidebar -->
+                <!-- Product Grid -->
+                <div class="row">
+                    {% for fabric in fabrics %}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="product-item">
+                            <!-- Product Image -->
+                            <div class="pi-pic">
+    <img src="{{ fabric.image.url }}" alt="">
+    <div class="description">{{ fabric.description }}</div>
+</div>
+
+                            <!-- Product Details -->
+                            <div class="pi-text">
+                                <!-- Product Name -->
+                                <a href="#">
+                                    <h5>{{ fabric.name }}</h5>
+                                </a>
+                                <!-- Product Price -->
+                                <div class="product-price">
+                                    ₹{{ fabric.price }}
+                                </div>
+                                          <form action="{% url 'customize'  fabric.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="purchase-btn">Purchase</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Close the for loop -->
+                    {% endfor %}
+                </div>
+                <!-- End Product Grid -->
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
+<!-- Js Plugins -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src=" {% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
+<script src="{% static 'js/jquery.dd.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

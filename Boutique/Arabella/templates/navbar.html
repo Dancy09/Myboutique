@@ -1,0 +1,77 @@
+{% load static %}
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+<header class="header-section">
+    <div class="header-top">
+        <div class="container">
+            <div class="ht-left">
+                <img style="height:60px;" src="{% static 'img/all.png' %}" alt="">
+
+            </div>
+            <div class="ht-right">
+                <a href="#" class="login-panel"><i class="fa-solid fa-phone"></i>9881726272</a>
+                <div class="lan-selector">
+
+
+                </div>
+     <div class="top-social">
+        <a href="https://www.instagram.com/instagram/?hl=en"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="https://in.pinterest.com/"><i class="fab fa-pinterest fa-lg"></i></a>
+    </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="nav-item">
+        <div class="container">
+            <div class="nav-depart">
+                <div>
+<!--                   <i class="fa-solid fa-grip-lines"></i>-->
+                    <span>All departments</span>
+
+                </div>
+            </div>
+            <nav class="nav-menu mobile-menu">
+                <ul>
+                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a>
+                    <ul class="dropdown">
+
+                            <li><a href="{% url 'saree' %}">Saree's</a></li>
+                            <li><a href="{% url 'lehenga' %}">Lehenga</a></li>
+                            <li><a href="{% url 'casual' %}">Casual Wear</a></li>
+                            <li><a href="{% url 'western' %}">Western Dress</a></li>
+                            <li><a href="{% url 'kur' %}">Women Kurtis</a></li>
+                            <li><a href="{% url 'kid' %}">Kid's Dress</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'customize' %}">Customize </a>
+
+                    </li>
+                    <li><a href="{% url 'story' %}">Customer Stories</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+
+<!--                    <li><a href="#">Pages</a>-->
+<!--                        <ul class="dropdown">-->
+<!--                            <li><a href="./blog-details.html">Blog Details</a></li>-->
+<!--                            <li><a href="./shopping-cart.html">Shopping Cart</a></li>-->
+<!--                            <li><a href="./check-out.html">Checkout</a></li>-->
+<!--                            <li><a href="./faq.html">Faq</a></li>-->
+<!--                            <li><a href="./register.html">Register</a></li>-->
+<!--                            <li><a href="./login.html">Login</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+                </ul>
+            </nav>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
